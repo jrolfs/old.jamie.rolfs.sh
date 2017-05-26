@@ -1,0 +1,49 @@
+{
+  "name": "jamie.rolfs",
+  "version": "0.0.1",
+  "description": "Jamie Rolfs' personal site",
+  "main": "index.js",
+  "author": "Jamie Rolfs <jamie.rolfs@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "glob": "^7.1.1",
+    "lodash-es": "^4.17.4",
+    "lokka": "^1.7.0",
+    "lokka-transport-http": "^1.6.1",
+    "next": "latest",
+    "next-redux-wrapper": "^1.0.0",
+    "normalize.css": "^7.0.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-inline-react-svg": "^0.4.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-wrap-in-js": "^1.1.1",
+    "css-loader": "^0.28.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-flowtype": "^2.33.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
+    "flow-bin": "^0.47.0",
+    "node-sass": "^4.5.3",
+    "postcss-easy-import": "^2.0.0",
+    "postcss-loader": "^2.0.5",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.17.0"
+  }
+}

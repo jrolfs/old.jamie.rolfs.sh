@@ -1,0 +1,25 @@
+{
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "transform-runtime",
+    "inline-react-svg",
+    "transform-flow-strip-types",
+    [
+      "wrap-in-js",
+      {
+        "extensions": ["css$", "scss$"]
+      }
+    ]
+  ],
+  "presets": [
+    "react",
+    "flow",
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["last 2 versions"]
+      }
+    }]
+  ]
+}
