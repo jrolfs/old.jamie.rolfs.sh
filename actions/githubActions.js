@@ -1,6 +1,6 @@
 // @flow
 
-import { getRepositories } from '../api/github';
+import fetch from 'isomorphic-fetch';
 
 export const SET_REPOSITORIES = 'SET_REPOSITORIES';
 
@@ -14,9 +14,9 @@ export function setRepositories(repositories: Repositories) {
 export function getAsyncRepositories() {
   return async (dispatch: Dispatch) => {
     try {
-      const repositories = await getRepositories();
+      const repositories = await fetch('http://localhost:3000/api/github/repositories');
 
-      dispatch(setRepositories(repositories));
+      dispatch(setRepositories(await repositories.json()));
     } catch (error) {
       console.error(error);
     }

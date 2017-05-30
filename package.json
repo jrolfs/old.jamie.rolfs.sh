@@ -6,12 +6,15 @@
   "author": "Jamie Rolfs <jamie.rolfs@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "glob": "^7.1.1",
+    "config": "^1.26.1",
+    "isomorphic-fetch": "^2.2.1",
+    "koa": "^2.2.0",
+    "koa-router": "^7.2.0",
     "lodash": "^4.17.4",
     "lokka": "^1.7.0",
     "lokka-transport-http": "^1.6.1",
