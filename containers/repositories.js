@@ -14,7 +14,7 @@ class Repositories extends Component {
     const { repositories } = this.props;
 
     return (
-      <Layout title="Repositories us">
+      <Layout>
         {repositories
           ? <div>
             <h2>Repositories</h2>
