@@ -1,11 +1,17 @@
 // @flow
 
-import React from 'react';
+import React, { Element } from 'react';
 import Head from 'next/head';
 
 import stylesheet from '../styles/index.css';
 
-export default ({ children, title = 'jamie.rolfs' }: { title?: String }) => (
+export default ({
+  children,
+  title = 'jamie.rolfs'
+}: {
+  children: Element<any>,
+  title?: string
+}) => (
   <div>
     <Head>
       <title>{title}</title>{

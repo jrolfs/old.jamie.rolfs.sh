@@ -4,7 +4,7 @@ import { getRepositories } from '../api/github';
 
 export const SET_REPOSITORIES = 'SET_REPOSITORIES';
 
-export function setRepositories(repositories: Array = []) {
+export function setRepositories(repositories: Repositories) {
   return {
     type: SET_REPOSITORIES,
     repositories
@@ -12,7 +12,7 @@ export function setRepositories(repositories: Array = []) {
 }
 
 export function getAsyncRepositories() {
-  return async (dispatch) => {
+  return async (dispatch: Dispatch) => {
     try {
       const repositories = await getRepositories();
 

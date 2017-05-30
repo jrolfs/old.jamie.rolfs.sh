@@ -7,8 +7,8 @@ import Layout from '../components/layout';
 
 class Repositories extends Component {
   props: {
-    repositories: Array<{ name: string, url: string }>
-  };
+    repositories: Repositories
+  }
 
   render() {
     const { repositories } = this.props;
