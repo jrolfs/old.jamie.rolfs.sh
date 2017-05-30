@@ -1,6 +1,8 @@
-module.exports = {
-  plugins: [
-    require('postcss-easy-import')({prefix: '_'}), // keep this first
-    require('autoprefixer')({ /* ...options */ }) // so imports are auto-prefixed too
-  ]
-}
+module.exports = ({ env }) => ({
+  plugins: {
+    'postcss-easy-import': {},
+    'postcss-cssnext': {},
+    autoprefixer: env === 'production' ? {} : false,
+    cssnano: env === 'production' ? {} : false
+  }
+});

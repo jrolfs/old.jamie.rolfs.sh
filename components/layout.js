@@ -3,7 +3,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import stylesheet from '../styles/index.scss';
+import stylesheet from '../styles/index.css';
 
 export default ({ children, title = 'jamie.rolfs' }: { title?: String }) => (
   <div>
