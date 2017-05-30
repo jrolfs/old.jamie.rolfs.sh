@@ -7,12 +7,11 @@ import { bindActionCreators } from 'redux';
 import Layout from '../components/layout';
 import * as copyActions from '../actions/copyActions';
 
-
 class Home extends Component {
   props: {
     subtitle: string,
     setSubtitle: Function
-  };
+  }
 
   handleSubmitleChange = (event: Event & { target: HTMLInputElement }) => {
     this.setState({ subtitle: event.target.value });
