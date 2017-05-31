@@ -1,9 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
+
 import Store from '../store';
 import Repositories from '../containers/repositories';
-import * as githubActions from '../actions/githubActions';
+import * as githubActions from '../actions/creators/github';
 
 
 class App extends React.Component {
