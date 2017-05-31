@@ -36,7 +36,6 @@ async function getRepositories(ctx) {
       `
     )
     .then((result) => {
-      console.log(get(result, 'viewer.repositories.nodes'));
       ctx.body = get(result, 'viewer.repositories.nodes');
     });
 }
