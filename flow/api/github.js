@@ -1,6 +1,8 @@
-declare type Repository = {
+// @flow
+
+declare type RepositoryObject = {
   name: string,
   url: string
 }
 
-declare type Repositories = Array<Repository>
+declare type RepositoryArray = Array<RepositoryObject>

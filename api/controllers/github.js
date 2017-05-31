@@ -13,7 +13,7 @@ const client = new Lokka({ transport });
 //
 // Routes
 
-router.get('/repositories', getRepositories);
+router.get('repositories', '/repositories', getRepositories);
 
 //
 // Handlers
@@ -36,6 +36,7 @@ async function getRepositories(ctx) {
       `
     )
     .then((result) => {
+      console.log(get(result, 'viewer.repositories.nodes'));
       ctx.body = get(result, 'viewer.repositories.nodes');
     });
 }

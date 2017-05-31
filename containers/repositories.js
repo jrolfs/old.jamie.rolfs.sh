@@ -2,12 +2,19 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Layout from '../components/layout';
+import * as githubActions from '../actions/creators/github';
 
 class Repositories extends Component {
   props: {
-    repositories: Repositories
+    repositories: RepositoryArray,
+    getAsyncRepositories: Function
+  }
+
+  handleClick = () => {
+    this.props.getAsyncRepositories();
   }
 
   render() {
@@ -15,6 +22,7 @@ class Repositories extends Component {
 
     return (
       <Layout>
+        <button onClick={this.handleClick}>Refresh</button>
         {repositories
           ? <div>
             <h2>Repositories</h2>
@@ -38,4 +46,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(Repositories);
+function mapDispatchToProps(dispatch: Dispatch) {
+  return bindActionCreators(githubActions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Repositories);

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Layout from '../components/layout';
-import * as copyActions from '../actions/copyActions';
+import * as copyActions from '../actions/creators/copy';
 
 class Home extends Component {
   props: {

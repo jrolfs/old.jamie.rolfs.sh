@@ -1,6 +1,6 @@
 // @flow
 
-import { SET_SUBTITLE } from '../actions/copyActions';
+import { SET_SUBTITLE } from '../actions/types/copy';
 
 export default function copyReducer(state: Object = { subtitle: '' }, action: Object) {
   switch (action.type) {
