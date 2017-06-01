@@ -6,7 +6,6 @@ import Store from '../store';
 import Repositories from '../containers/repositories';
 import * as githubActions from '../actions/creators/github';
 
-
 class App extends React.Component {
   static async getInitialProps({ store, isServer }) {
     await store.dispatch(githubActions.getAsyncRepositories());
