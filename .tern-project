@@ -1,0 +1,19 @@
+{
+  "loadEagerly": [
+    "components",
+    "actions",
+    "reducers",
+    "pages",
+    "api"
+  ],
+  "plugins": {
+    "es_modules": {},
+    "node": {},
+    "commonjs": {},
+    "doc_comment": {}
+  },
+  "libs": [
+    "browser"
+  ],
+  "ecmaVersion": 6
+}
