@@ -8,6 +8,10 @@ import Layout from '../components/layout';
 import * as copyActions from '../actions/creators/copy';
 
 class Home extends Component {
+  state: {
+    subtitle: string
+  }
+
   props: {
     subtitle: string,
     setSubtitle: Function
