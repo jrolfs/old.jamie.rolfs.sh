@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import Layout from '../components/layout';
 import { setSubtitle } from '../actions/copy';
 
-import type { State as CopyState } from '../reducers/copyReducer';
+import type { Store } from '../reducers';
 import type { SetSubtitleActionCreator } from '../actions/copy';
 
 type Props = {
@@ -45,7 +45,7 @@ class Home extends React.Component<Props, State> {
   }
 }
 
-function mapStateToProps(state: { copy: CopyState }) {
+function mapStateToProps(state: Store) {
   return {
     subtitle: state.copy.subtitle
   };
