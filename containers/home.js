@@ -4,11 +4,14 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import type { State as CopyState } from '../reducers/copyReducer';
 import Layout from '../components/layout';
-import * as copyActions from '../actions/creators/copy';
+import { setSubtitle } from '../actions/copy';
+
+import type { State as CopyState } from '../reducers/copyReducer';
+import type { SetSubtitleActionCreator } from '../actions/copy';
 
 type Props = {
+  subtitle: string,
   setSubtitle: SetSubtitleActionCreator
 }
 
@@ -28,7 +31,7 @@ class Home extends React.Component<Props, State> {
   }
 
   render() {
-    const { subtitle } = this.state;
+    const { subtitle } = this.props;
 
     return (
       <Layout title="JR">
@@ -42,14 +45,14 @@ class Home extends React.Component<Props, State> {
   }
 }
 
-function mapStateToProps(state: { copy: CopyState }): State {
+function mapStateToProps(state: { copy: CopyState }) {
   return {
     subtitle: state.copy.subtitle
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch): Props {
-  return bindActionCreators(copyActions, dispatch);
+function mapDispatchToProps(dispatch: Dispatch) {
+  return bindActionCreators({ setSubtitle }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

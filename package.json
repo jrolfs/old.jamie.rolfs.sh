@@ -6,7 +6,7 @@
   "author": "Jamie Rolfs <jamie.rolfs@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "node --inspect server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },

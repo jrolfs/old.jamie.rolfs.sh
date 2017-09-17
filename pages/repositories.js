@@ -4,7 +4,7 @@ import withRedux from 'next-redux-wrapper';
 
 import Store from '../store';
 import Repositories from '../containers/repositories';
-import * as githubActions from '../actions/creators/github';
+import * as githubActions from '../actions/github';
 
 class App extends React.Component {
   static async getInitialProps({ store, isServer }) {

@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Layout from '../components/layout';
-import * as githubActions from '../actions/creators/github';
+import { getAsyncRepositories } from '../actions/github';
+
+import type { State as GithubState } from '../reducers/githubReducer';
 
 class Repositories extends Component<{
   repositories: RepositoryArray,
@@ -38,14 +40,14 @@ class Repositories extends Component<{
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: { github: GithubState }) {
   return {
     repositories: state.github.repositories
   };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
-  return bindActionCreators(githubActions, dispatch);
+  return bindActionCreators({ getAsyncRepositories }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Repositories);
