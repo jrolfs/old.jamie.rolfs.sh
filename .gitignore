@@ -1,5 +1,13 @@
+# Node
 node_modules
-.DS_Store
 yarn-error.log
-.next/
+
+# Application
 config/routes.json
+.next/
+
+# Flow
+flow-typed/
+
+# macOS
+.DS_Store
