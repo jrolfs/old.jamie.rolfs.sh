@@ -1,9 +1,9 @@
-// flow-typed signature: 4d3fb8f2ed0c9a8ce4bc20ddec1dd85a
-// flow-typed version: d80d7aa0bf/next_v2.x.x/flow_>=v0.37.x
+// flow-typed signature: 4ef8fdf85dcacb42bc2cc2953f614c48
+// flow-typed version: 3dad0a2c5d/next_v2.x.x/flow_>=v0.37.x
 
 declare module "next" {
-  declare type RequestHandler = (req: http$IncomingMessage, res: http$ServerResponse, parsedUrl: any) => Promise<void>;
-  declare type NextApp = {
+  declare export type RequestHandler = (req: http$IncomingMessage, res: http$ServerResponse, parsedUrl: any) => Promise<void>;
+  declare export type NextApp = {
     prepare(): Promise<void>,
     getRequestHandler(): RequestHandler,
     render(req: http$IncomingMessage, res: http$ServerResponse, pathname: string, query: any): any,
@@ -11,7 +11,7 @@ declare module "next" {
     renderError(err: Error, req: http$IncomingMessage, res: http$ServerResponse, pathname: any, query: any): any,
     renderErrorToHTML(err: Error, req: http$IncomingMessage, res: http$ServerResponse, pathname: string, query: any): string,
   };
-  declare type Options = {
+  declare export type Options = {
     dev?: boolean,
     dir?: string,
     quiet?: boolean,
@@ -27,16 +27,33 @@ declare module "next/head" {
 }
 
 declare module "next/link" {
-  import type {Component} from 'react';
+  import type { Component } from "react";
 
-  declare type State = { href: string };
-  declare export default Class<Component<void, State, *>>;
+  declare export type URLObject = {
+    +href?: string,
+    +protocol?: string,
+    +slashes?: boolean,
+    +auth?: string,
+    +hostname?: string,
+    +port?: string | number,
+    +host?: string,
+    +pathname?: string,
+    +search?: string,
+    +query?: Object,
+    +hash?: string
+  };
+
+  declare export type State = {
+    href: string | URLObject,
+    as?: string | URLObject
+  };
+  declare export default Class<Component<void, State, *>>
 }
 
 declare module "next/prefetch" {
   import type {Component} from 'react';
 
-  declare type State = {
+  declare export type State = {
     href: string,
     prefetch?: boolean,
   };
@@ -65,7 +82,7 @@ declare module "next/router" {
 declare module "next/document" {
   import type {Component} from 'react';
 
-  declare type Context = {
+  declare export type Context = {
     pathname: string,
     query: any,
     req?: any,
