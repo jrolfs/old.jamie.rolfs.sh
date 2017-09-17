@@ -1,34 +1,35 @@
 // @flow
 
-import React, { Component } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import type { State as CopyState } from '../reducers/copyReducer';
 import Layout from '../components/layout';
 import * as copyActions from '../actions/creators/copy';
 
-class Home extends Component {
-  state: {
-    subtitle: string
+type Props = {
+  setSubtitle: SetSubtitleActionCreator
+}
+
+type State = {
+  subtitle: string
+}
+
+class Home extends React.Component<Props, State> {
+  handleSubmitleChange = (event: SyntheticEvent<HTMLInputElement>) => {
+    this.setState({ subtitle: event.currentTarget.value });
   }
 
-  props: {
-    subtitle: string,
-    setSubtitle: Function
-  }
-
-  handleSubmitleChange = (event: Event & { target: HTMLInputElement }) => {
-    this.setState({ subtitle: event.target.value });
-  }
-
-  handleFormSubmit = (event: Event) => {
+  handleFormSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     this.props.setSubtitle(this.state.subtitle);
   }
 
   render() {
-    const { subtitle } = this.props;
+    const { subtitle } = this.state;
+
     return (
       <Layout title="JR">
         <form onSubmit={this.handleFormSubmit}>
@@ -41,13 +42,13 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: { copy: CopyState }): State {
   return {
     subtitle: state.copy.subtitle
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch) {
+function mapDispatchToProps(dispatch: Dispatch): Props {
   return bindActionCreators(copyActions, dispatch);
 }
 

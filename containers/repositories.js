@@ -7,12 +7,10 @@ import { bindActionCreators } from 'redux';
 import Layout from '../components/layout';
 import * as githubActions from '../actions/creators/github';
 
-class Repositories extends Component {
-  props: {
-    repositories: RepositoryArray,
-    getAsyncRepositories: Function
-  }
-
+class Repositories extends Component<{
+  repositories: RepositoryArray,
+  getAsyncRepositories: Function
+}> {
   handleClick = () => {
     this.props.getAsyncRepositories();
   }
@@ -31,7 +29,7 @@ class Repositories extends Component {
                 <li key={repository.url}>
                   <a href={repository.url}>{repository.name}</a>
                 </li>
-                ))}
+              ))}
             </ul>
           </div>
           : <p>Loading</p>}

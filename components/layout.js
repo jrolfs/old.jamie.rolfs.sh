@@ -1,17 +1,16 @@
 // @flow
 
-import React, { Element } from 'react';
+import * as React from 'react';
 import Head from 'next/head';
 
 import stylesheet from '../styles/index.css';
 
-export default ({
-  children,
-  title = 'jamie.rolfs'
-}: {
-  children: Element<any>,
+type Props = {
+  children: React.Node,
   title?: string
-}) => (
+}
+
+const Layout = ({ children, title }: Props) => (
   <div>
     <Head>
       <title>{title}</title>{
@@ -26,3 +25,9 @@ export default ({
     <footer />
   </div>
 );
+
+Layout.defaultProps = {
+  title: 'jamie.rolfs'
+};
+
+export default Layout;
