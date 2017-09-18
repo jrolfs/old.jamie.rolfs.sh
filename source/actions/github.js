@@ -3,7 +3,7 @@
 import { get } from 'lodash';
 import fetch from 'isomorphic-fetch';
 
-import routes from '../config/routes.json';
+import routes from '../api/routes.json';
 
 export type SetRepositoriesAction = { type: 'SET_REPOSITORIES', repositories: RepositoryArray };
 export type Action = SetRepositoriesAction;

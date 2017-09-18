@@ -6,9 +6,10 @@
   "author": "Jamie Rolfs <jamie.rolfs@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "node --inspect server.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "develop": "node --inspect source/server.js",
+    "build": "next build source",
+    "start": "NODE_ENV=production node source/server.js",
+    "format": "prettier-eslint --write 'source/**/*.js'"
   },
   "dependencies": {
     "config": "^1.26.1",

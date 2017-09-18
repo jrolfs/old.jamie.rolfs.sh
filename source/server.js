@@ -3,7 +3,7 @@ const Next = require('next');
 const Router = require('koa-router');
 
 const dev = process.env.NODE_ENV !== 'production';
-const app = Next({ dev });
+const app = Next({ dir: './source', dev });
 const handle = app.getRequestHandler();
 const api = require('./api');
 

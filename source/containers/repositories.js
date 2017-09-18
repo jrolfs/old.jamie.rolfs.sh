@@ -15,7 +15,7 @@ class Repositories extends Component<{
 }> {
   handleClick = () => {
     this.props.getAsyncRepositories();
-  }
+  };
 
   render() {
     const { repositories } = this.props;
@@ -23,8 +23,8 @@ class Repositories extends Component<{
     return (
       <Layout>
         <button onClick={this.handleClick}>Refresh</button>
-        {repositories
-          ? <div>
+        {repositories ? (
+          <div>
             <h2>Repositories</h2>
             <ul>
               {repositories.map(repository => (
@@ -34,7 +34,9 @@ class Repositories extends Component<{
               ))}
             </ul>
           </div>
-          : <p>Loading</p>}
+        ) : (
+          <p>Loading</p>
+        )}
       </Layout>
     );
   }
