@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import styled from 'styled-components';
 
 import Layout from '../components/layout';
 import { setSubtitle } from '../actions/copy';
@@ -31,9 +32,13 @@ class Home extends React.Component<Props, State> {
   };
 
   render() {
+    const Logo = styled('svg')`
+      height: 400px;
+    `;
+
     return (
       <Layout title="jamie · rolfs">
-        <svg className="logo-container" viewBox="0 0 27 36" xmlns="http://www.w3.org/2000/svg">
+        <Logo className="logo-container" viewBox="0 0 27 36" xmlns="http://www.w3.org/2000/svg">
           <g className="logo">
             <path
               className="dot"
@@ -57,7 +62,7 @@ class Home extends React.Component<Props, State> {
               L12.6731383,27.4000435 Z M13,11 L13,25 L16,25 L16,11 L13,11 Z"
             />
           </g>
-        </svg>
+        </Logo>
       </Layout>
     );
   }
