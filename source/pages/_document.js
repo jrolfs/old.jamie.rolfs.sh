@@ -18,6 +18,35 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           {styleTags}
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="https://f001.backblazeb2.com/file/favicon/apple-touch-icon.png?v=2bQWoe5z5r"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="https://f001.backblazeb2.com/file/favicon/favicon-32x32.png?v=2bQWoe5z5r"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="https://f001.backblazeb2.com/file/favicon/favicon-16x16.png?v=2bQWoe5z5r"
+          />
+          <link rel="manifest" href="https://f001.backblazeb2.com/file/favicon/manifest.json?v=2bQWoe5z5r" />
+          <link
+            rel="mask-icon"
+            href="https://f001.backblazeb2.com/file/favicon/safari-pinned-tab.svg?v=2bQWoe5z5r"
+            color="#5bbad5"
+          />
+          <link rel="shortcut icon" href="https://f001.backblazeb2.com/file/favicon/favicon.ico?v=2bQWoe5z5r" />
+          <meta
+            name="msapplication-config"
+            content="https://f001.backblazeb2.com/file/favicon/browserconfig.xml?v=2bQWoe5z5r"
+          />
+          <meta name="theme-color" content="#ffffff" />
         </Head>
 
         <body>
