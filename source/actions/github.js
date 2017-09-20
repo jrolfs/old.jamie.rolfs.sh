@@ -1,9 +1,7 @@
 // @flow
 
+import request from 'superagent';
 import { get } from 'lodash';
-import fetch from 'isomorphic-fetch';
-
-import routes from '../api/routes.json';
 
 export type SetRepositoriesAction = { type: 'SET_REPOSITORIES', repositories: RepositoryArray };
 export type Action = SetRepositoriesAction;
@@ -22,9 +20,16 @@ export function setRepositories(repositories: RepositoryArray): SetRepositoriesA
 export function getAsyncRepositories(): Function {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await fetch(`http://localhost:3000${get(routes, 'github.repositories')}`);
+      let url = '/api/github/repositories';
 
-      dispatch(setRepositories(await response.json()));
+      // FIXME: use configuration
+      if (get(process, 'env.NODE_ENV') !== 'production') {
+        url = `http://localhost:3000${url}`;
+      }
+
+      const response = await request.get(url);
+
+      dispatch(setRepositories(response.body));
     } catch (error) {
       console.error(error); // eslint-disable-line no-console
     }
