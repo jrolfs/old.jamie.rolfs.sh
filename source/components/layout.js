@@ -5,11 +5,12 @@ import Head from 'next/head';
 
 type Props = {
   children: React.Node,
-  title?: string
+  title?: string,
+  className?: string
 };
 
-const Layout = ({ children, title }: Props) => (
-  <div>
+const Layout = ({ children, title, className }: Props) => (
+  <div className={className}>
     <Head>
       <title>{title}</title>
 

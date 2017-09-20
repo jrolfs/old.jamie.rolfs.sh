@@ -25,6 +25,12 @@ const CenteringLayout = styled(Layout)`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: calc(100% + 400px);
+  height: calc(100% + 400px);
+  margin-top: -200px;
+  margin-right: -200px;
+  margin-bottom: -200px;
+  margin-left: -200px;
 `;
 
 class Home extends React.Component<Props, State> {
