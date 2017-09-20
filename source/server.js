@@ -7,6 +7,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = Next({ dir: './source', dev });
 const handle = app.getRequestHandler();
 const api = require('./api');
+const port = require('config').get('port');
 
 app.prepare().then(() => {
   const server = new Koa();
@@ -26,10 +27,10 @@ app.prepare().then(() => {
 
   server.use(router.routes());
 
-  server.listen(3000, (error) => {
+  server.listen(port, (error) => {
     if (error) throw error;
 
     // eslint-disable-next-line no-console
-    console.log(gradient.cristal('↑ Ready on http://localhost:3000 ↑'));
+    console.log(gradient.cristal(`↑ Ready on http://localhost:${port} ↑`));
   });
 });
