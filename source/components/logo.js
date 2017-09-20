@@ -13,7 +13,7 @@ type Props = {
   isServer: boolean
 };
 
-const distanceX = 50;
+const distanceX = 95;
 const distanceY = 40;
 
 const springSettings = { stiffness: 60, damping: 40 };
