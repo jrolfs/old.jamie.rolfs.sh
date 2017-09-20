@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import styled from 'styled-components';
 
 import Layout from '../components/layout';
 import Logo from '../components/logo';
@@ -20,6 +21,12 @@ type State = {
   subtitle: string
 };
 
+const CenteringLayout = styled(Layout)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 class Home extends React.Component<Props, State> {
   handleSubmitleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ subtitle: event.currentTarget.value });
@@ -33,9 +40,9 @@ class Home extends React.Component<Props, State> {
 
   render() {
     return (
-      <Layout title="jamie · rolfs">
+      <CenteringLayout title="jamie · rolfs">
         <Logo />
-      </Layout>
+      </CenteringLayout>
     );
   }
 }
