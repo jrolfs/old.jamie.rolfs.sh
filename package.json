@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "config": "^1.26.1",
+    "d3": "^4.10.2",
     "gradient-string": "^0.1.2",
     "koa": "^2.2.0",
     "koa-router": "^7.2.0",
