@@ -4,14 +4,7 @@
     "transform-object-rest-spread",
     "transform-class-properties",
     "transform-runtime",
-    "inline-react-svg",
-    "transform-flow-strip-types",
-    [
-      "wrap-in-js",
-      {
-        "extensions": ["css$", "scss$"]
-      }
-    ]
+    ["babel-plugin-styled-components", { "ssr": true }]
   ],
   "presets": [
     "react",
