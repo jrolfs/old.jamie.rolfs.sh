@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
 
-import Layout from '../components/layout';
 import Logo from '../components/logo';
 import { setSubtitle } from '../actions/copy';
 
@@ -21,7 +20,7 @@ type State = {
   subtitle: string
 };
 
-const CenteringLayout = styled(Layout)`
+const CenteringLayout = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

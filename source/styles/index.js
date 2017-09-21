@@ -4,7 +4,7 @@ import { injectGlobal } from 'styled-components';
 export default () => injectGlobal`
   ${styledNormalize}
 
-  body, html, .root, .root > div, #__next, #__next > div {
+  body, html, body > div, #__next, #__next > div {
     padding: 0;
     height: 100%;
     width: 100%;

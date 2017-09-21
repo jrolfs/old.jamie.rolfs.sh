@@ -7,30 +7,26 @@ import { ServerStyleSheet } from 'styled-components';
 import styles from '../styles/';
 
 export default class MyDocument extends Document {
-  render() {
+  static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
-    const main = sheet.collectStyles(<Main />);
+    const page = renderPage(App => props => sheet.collectStyles(<App {...props} />));
     const styleTags = sheet.getStyleElement();
+    return { ...page, styleTags };
+  }
 
+  render() {
     styles();
 
     return (
       <html lang="en">
         <Head>
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106767345-1" />
-          {{ /* eslint-disable */ }}
-          <script __dangerouslySetInnerHTML={{
-              __html: `
-                !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
-                  analytics.load("MIG6odzGDzdpFg6QdK6yPIJ1pjqjLy9x");
-                  analytics.page();
-                }}();
-              `
-            }}
-          />
-          {{ /* eslint-enable */ }}
+          <title>jamie.rolfs</title>
 
-          {styleTags}
+          {this.props.styleTags}
+
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -69,8 +65,7 @@ export default class MyDocument extends Document {
         </Head>
 
         <body>
-          <div className="root">{main}</div>
-
+          <Main />
           <NextScript />
         </body>
       </html>

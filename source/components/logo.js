@@ -10,9 +10,7 @@ import { Motion, spring } from 'react-motion';
 
 import { width as logoWidth, height as logoHeight, vertices as logoVertices } from '../data/logo';
 
-type Props = {
-  isServer: ?boolean
-};
+type Props = {};
 
 type State = {
   isOverDot: boolean
