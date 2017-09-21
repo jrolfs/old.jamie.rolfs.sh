@@ -4,7 +4,8 @@
 
 import * as React from 'react';
 import { defer, reduce } from 'lodash';
-import styled from 'styled-components';
+import { interpolateHclLong } from 'd3';
+import styled, { keyframes } from 'styled-components';
 import { Motion, spring } from 'react-motion';
 
 import { width as logoWidth, height as logoHeight, vertices as logoVertices } from '../data/logo';
@@ -13,10 +14,16 @@ type Props = {
   isServer: ?boolean
 };
 
+type State = {
+  isOverDot: boolean
+};
+
 const distanceX = 95;
 const distanceY = 40;
 
 const springSettings = { stiffness: 100, damping: 35 };
+const interpolateFromBlack = interpolateHclLong('#000000', '#a0ddff');
+const interpolateToBlue = interpolateHclLong('#a0ddff', '#7189ff');
 
 const reduceVertices = reduce.bind(
   this,
@@ -72,6 +79,20 @@ const reduceDefaultVertices = reduce.bind(
   {}
 );
 
+const throb = keyframes`
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+`;
+
 const StyledVector = styled('svg')`
   height: 100%;
   width: 100%;
@@ -82,13 +103,26 @@ const StyledVector = styled('svg')`
 
 const EmailAnchor = styled.a`
   cursor: pointer;
+  transform-origin: 50% 10%;
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+  animation: ${throb} 2s infinite;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
-class Logo extends React.Component<Props> {
+class Logo extends React.Component<Props, State> {
   svg: HTMLElement;
 
   width: number;
   height: number;
+
+  state = {
+    isOverDot: false
+  };
 
   componentDidMount() {
     defer(() => {
@@ -97,15 +131,25 @@ class Logo extends React.Component<Props> {
     });
   }
 
+  handleAnchorMouseEnter = () => {
+    this.setState(state => ({ ...state, isOverDot: true }));
+  };
+
+  handleAnchorMouseLeave = () => {
+    this.setState(state => ({ ...state, isOverDot: false }));
+  };
+
   render() {
     return (
       <Motion
         defaultStyle={{
+          color: 0,
           width: logoWidth + distanceX,
           height: logoHeight + distanceY,
           ...reduceDefaultVertices()
         }}
         style={{
+          color: spring(this.state.isOverDot ? 2 : 0, { dampening: 10, stiffness: 30 }),
           width: spring(logoWidth, springSettings),
           height: spring(logoHeight, springSettings),
           ...reduceVertices()
@@ -125,6 +169,14 @@ class Logo extends React.Component<Props> {
             })
             .join('');
 
+          let fill;
+
+          if (motion.color < 1) {
+            fill = interpolateFromBlack(motion.color);
+          } else {
+            fill = interpolateToBlue(motion.color - 1);
+          }
+
           return (
             <StyledVector
               className="logo-container"
@@ -133,9 +185,14 @@ class Logo extends React.Component<Props> {
               xmlns="http://www.w3.org/2000/svg"
             >
               <g className="logo">
-                <EmailAnchor href="mailto:jamie@rolfs.sh">
+                <EmailAnchor
+                  href="mailto:jamie@rolfs.sh"
+                  onMouseEnter={this.handleAnchorMouseEnter}
+                  onMouseLeave={this.handleAnchorMouseLeave}
+                >
                   <path
                     className="dot"
+                    fill={fill}
                     d="M11.5299999,0.172
                     C10.2339999,0.172
                     9.3699999,1.108
@@ -151,8 +208,16 @@ class Logo extends React.Component<Props> {
                     11.5299999,0.172
                     Z"
                   />
+                  <text
+                    fontFamily="HelveticaNeue-Light, Helvetica Neue"
+                    fontSize="4"
+                    fontWeight="300"
+                    fill="#000000"
+                  >
+                    <tspan x="9.9" y="3.71934651">@</tspan>
+                  </text>
                 </EmailAnchor>
-                <path className="jr" d={vertices} />
+                <path className="jr" d={vertices} fill="#000000" />
               </g>
             </StyledVector>
           );
