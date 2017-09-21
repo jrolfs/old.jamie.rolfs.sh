@@ -11,7 +11,7 @@ import type { State as GithubState } from './githubReducer';
 export type Store = {
   copy: CopyState,
   github: GithubState
-}
+};
 
 export default combineReducers({
   copy,
