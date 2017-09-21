@@ -39,7 +39,7 @@ class Home extends React.Component<Props, State> {
 
   render() {
     return (
-      <CenteringLayout title="jamie · rolfs">
+      <CenteringLayout>
         <Logo />
       </CenteringLayout>
     );
