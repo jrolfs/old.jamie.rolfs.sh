@@ -85,7 +85,7 @@ const throb = keyframes`
   }
 
   50% {
-    transform: scale(1.05);
+    transform: scale(1.25);
   }
 
   100% {
@@ -99,11 +99,12 @@ const StyledVector = styled('svg')`
   transition-property: width, height;
   transition-duration: 2s;
   transition-timing-function: ease-in-out;
+  overflow: visible;
 `;
 
 const EmailAnchor = styled.a`
   cursor: pointer;
-  transform-origin: 50% 10%;
+  transform-origin: 50% 50%;
   transition-property: transform;
   transition-duration: 250ms;
   transition-timing-function: ease-in-out;
