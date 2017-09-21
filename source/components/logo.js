@@ -20,8 +20,8 @@ const distanceX = 95;
 const distanceY = 40;
 
 const springSettings = { stiffness: 100, damping: 35 };
-const interpolateFromBlack = interpolateHclLong('#000000', '#a0ddff');
-const interpolateToBlue = interpolateHclLong('#a0ddff', '#7189ff');
+const interpolateFromBlack = interpolateHclLong('#000000', '#361F27');
+const interpolateFromPurple = interpolateHclLong('#361F27', '#73D2DE');
 
 const reduceVertices = reduce.bind(
   this,
@@ -173,7 +173,7 @@ class Logo extends React.Component<Props, State> {
           if (motion.color < 1) {
             fill = interpolateFromBlack(motion.color);
           } else {
-            fill = interpolateToBlue(motion.color - 1);
+            fill = interpolateFromPurple(motion.color - 1);
           }
 
           return (
