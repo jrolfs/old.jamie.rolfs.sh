@@ -17,6 +17,19 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106767345-1" />
+          <script
+            __dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments)};
+                gtag('js', new Date());
+
+                gtag('config', 'UA-106767345-1');
+              `
+            }}
+          />
+
           {styleTags}
           <link
             rel="apple-touch-icon"
