@@ -38,12 +38,6 @@ class Home extends React.Component<Props, State> {
     this.setState({ subtitle: event.currentTarget.value });
   };
 
-  handleFormSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    this.props.setSubtitle(this.state.subtitle);
-  };
-
   render() {
     return (
       <CenteringLayout title="jamie · rolfs">

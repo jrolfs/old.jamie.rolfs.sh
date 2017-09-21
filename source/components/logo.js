@@ -10,13 +10,13 @@ import { Motion, spring } from 'react-motion';
 import { width as logoWidth, height as logoHeight, vertices as logoVertices } from '../data/logo';
 
 type Props = {
-  isServer: boolean
+  isServer: ?boolean
 };
 
 const distanceX = 95;
 const distanceY = 40;
 
-const springSettings = { stiffness: 60, damping: 40 };
+const springSettings = { stiffness: 100, damping: 35 };
 
 const reduceVertices = reduce.bind(
   this,
@@ -80,6 +80,10 @@ const StyledVector = styled('svg')`
   transition-timing-function: ease-in-out;
 `;
 
+const EmailAnchor = styled.a`
+  cursor: pointer;
+`;
+
 class Logo extends React.Component<Props> {
   svg: HTMLElement;
 
@@ -129,23 +133,25 @@ class Logo extends React.Component<Props> {
               xmlns="http://www.w3.org/2000/svg"
             >
               <g className="logo">
-                <path
-                  className="dot"
-                  d="M11.5299999,0.172
-                  C10.2339999,0.172
-                  9.3699999,1.108
-                  9.3699999,2.296
-                  C9.3699999,3.52
-                  10.2339999,4.42
-                  11.5299999,4.42
-                  C12.8259999,4.42
-                  13.7259999,3.52
-                  13.7259999,2.296
-                  C13.7259999,1.108
-                  12.8259999,0.172
-                  11.5299999,0.172
-                  Z"
-                />
+                <EmailAnchor href="mailto:jamie@rolfs.sh">
+                  <path
+                    className="dot"
+                    d="M11.5299999,0.172
+                    C10.2339999,0.172
+                    9.3699999,1.108
+                    9.3699999,2.296
+                    C9.3699999,3.52
+                    10.2339999,4.42
+                    11.5299999,4.42
+                    C12.8259999,4.42
+                    13.7259999,3.52
+                    13.7259999,2.296
+                    C13.7259999,1.108
+                    12.8259999,0.172
+                    11.5299999,0.172
+                    Z"
+                  />
+                </EmailAnchor>
                 <path className="jr" d={vertices} />
               </g>
             </StyledVector>
