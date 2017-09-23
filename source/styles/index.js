@@ -1,12 +1,14 @@
-import styledNormalize from 'styled-normalize';
-import { injectGlobal } from 'styled-components';
+import injectGlobalStyles from './global';
 
-export default () => injectGlobal`
-  ${styledNormalize}
+import CenteringLayout from './centering-layout';
+import InformationAnchor from './information-anchor';
+import LogoCenteringLayout from './logo-centering-layout';
+import LogoVector from './logo-vector';
 
-  body, html, body > div, #__next, #__next > div {
-    padding: 0;
-    height: 100%;
-    width: 100%;
-  }
-`;
+export {
+  injectGlobalStyles,
+  CenteringLayout,
+  InformationAnchor,
+  LogoCenteringLayout,
+  LogoVector
+};

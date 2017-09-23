@@ -5,8 +5,9 @@
 import * as React from 'react';
 import { defer, reduce } from 'lodash';
 import { interpolateHclLong } from 'd3';
-import styled, { keyframes } from 'styled-components';
 import { Motion, spring } from 'react-motion';
+
+import { LogoVector, InformationAnchor } from '../styles';
 
 import { width as logoWidth, height as logoHeight, vertices as logoVertices } from '../data/logo';
 
@@ -77,42 +78,6 @@ const reduceDefaultVertices = reduce.bind(
   {}
 );
 
-const throb = keyframes`
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.15);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-`;
-
-const StyledVector = styled('svg')`
-  height: 100%;
-  width: 100%;
-  transition-property: width, height;
-  transition-duration: 2s;
-  transition-timing-function: ease-in-out;
-  overflow: visible !important;
-`;
-
-const EmailAnchor = styled.a`
-  cursor: pointer;
-  transform-origin: 50% 50%;
-  transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: ease-in-out;
-  animation: ${throb} 2s infinite;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-`;
-
 class Logo extends React.Component<Props, State> {
   svg: HTMLElement;
 
@@ -177,14 +142,14 @@ class Logo extends React.Component<Props, State> {
           }
 
           return (
-            <StyledVector
+            <LogoVector
               className="logo-container"
               viewBox={`0 0 ${motion.width} ${motion.height}`}
               innerRef={svg => this.svg = svg}
               xmlns="http://www.w3.org/2000/svg"
             >
               <g className="logo">
-                <EmailAnchor
+                <InformationAnchor
                   href="mailto:jamie@rolfs.sh"
                   onMouseEnter={this.handleAnchorMouseEnter}
                   onMouseLeave={this.handleAnchorMouseLeave}
@@ -192,33 +157,18 @@ class Logo extends React.Component<Props, State> {
                   <path
                     className="dot"
                     fill={fill}
-                    d="M11.5299999,0.172
-                    C10.2339999,0.172
-                    9.3699999,1.108
-                    9.3699999,2.296
-                    C9.3699999,3.52
-                    10.2339999,4.42
-                    11.5299999,4.42
-                    C12.8259999,4.42
-                    13.7259999,3.52
-                    13.7259999,2.296
-                    C13.7259999,1.108
-                    12.8259999,0.172
-                    11.5299999,0.172
-                    Z"
+                    d="M11.5299999,0.172 C10.2339999,0.172 9.3699999,1.108 9.3699999,2.296
+                      C9.3699999,3.52 10.2339999,4.42 11.5299999,4.42 C12.8259999,4.42
+                      13.7259999,3.52 13.7259999,2.296 C13.7259999,1.108 12.8259999,0.172
+                      11.5299999,0.172 Z"
                   />
-                  <text
-                    fontFamily="HelveticaNeue-Light, Helvetica Neue"
-                    fontSize="4"
-                    fontWeight="300"
-                    fill="#000000"
-                  >
+                  <text className="icon">
                     <tspan x="9.9" y="3.71934651">@</tspan>
                   </text>
-                </EmailAnchor>
+                </InformationAnchor>
                 <path className="jr" d={vertices} fill="#000000" />
               </g>
-            </StyledVector>
+            </LogoVector>
           );
         }}
       </Motion>
