@@ -9,7 +9,10 @@
     "develop": "node --inspect source/server.js",
     "build": "next build source",
     "start": "NODE_ENV=production node source/server.js",
-    "format": "prettier-eslint --write 'source/**/*.js'"
+    "format": "prettier-eslint --write 'source/**/*.js'",
+    "env": "node -r dotenv/config",
+    "now:prune": "yarn env ./node_modules/now-pipeline/bin/prune.js",
+    "now:list": "yarn env ./node_modules/now-pipeline/bin/list.js"
   },
   "dependencies": {
     "config": "^1.26.1",
