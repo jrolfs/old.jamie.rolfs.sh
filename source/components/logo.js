@@ -143,7 +143,6 @@ class Logo extends React.Component<Props, State> {
 
           return (
             <LogoVector
-              className="logo-container"
               viewBox={`0 0 ${motion.width} ${motion.height}`}
               innerRef={svg => this.svg = svg}
               xmlns="http://www.w3.org/2000/svg"
