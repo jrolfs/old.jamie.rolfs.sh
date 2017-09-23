@@ -3,6 +3,7 @@ node_modules
 yarn-error.log
 
 # Application
+.env
 config/local.json
 config/routes.json
 .next/
