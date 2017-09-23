@@ -4,7 +4,6 @@ import { throb } from './animations';
 const InformationAnchor = styled.a`
   cursor: pointer;
   transform-origin-x: 50%;
-  transform-origin-y: 50%;
   transition-property: transform;
   transition-duration: 250ms;
   transition-timing-function: ease-in-out;
