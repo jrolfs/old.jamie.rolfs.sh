@@ -15,5 +15,12 @@
         "browsers": ["last 2 versions"]
       }
     }]
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        ["babel-plugin-styled-components", { "ssr": true, "displayName": false }]
+      ]
+    }
+  }
 }
