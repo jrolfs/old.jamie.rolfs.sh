@@ -3,8 +3,8 @@ import { throb } from './animations';
 
 const InformationAnchor = styled.a`
   cursor: pointer;
-  transform-origin-x: 50%;
   transition-property: transform;
+  transform-origin: center center;
   transition-duration: 250ms;
   transition-timing-function: ease-in-out;
   animation: ${throb} 2s infinite;

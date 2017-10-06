@@ -111,17 +111,21 @@ class Logo extends React.Component<Props, State> {
                   onMouseEnter={this.handleAnchorMouseEnter}
                   onMouseLeave={this.handleAnchorMouseLeave}
                 >
-                  <path
-                    className="dot"
-                    fill={fill}
-                    d="M11.5299999,0.172 C10.2339999,0.172 9.3699999,1.108 9.3699999,2.296
-                      C9.3699999,3.52 10.2339999,4.42 11.5299999,4.42 C12.8259999,4.42
-                      13.7259999,3.52 13.7259999,2.296 C13.7259999,1.108 12.8259999,0.172
-                      11.5299999,0.172 Z"
-                  />
-                  <text className="icon">
-                    <tspan x="9.9" y="3.71934651">@</tspan>
-                  </text>
+                  <g className="dot" transform="translate(11.2, 4)">
+                    <circle
+                      className="dot"
+                      fill={fill}
+                      r="2"
+                    />
+                    <text
+                      dy="-0.055"
+                      dominantBaseline="central"
+                      textAnchor="middle"
+                      className="icon"
+                    >
+                      @
+                    </text>
+                  </g>
                 </InformationAnchor>
                 <path className="jr" d={path} fill="#000000" />
               </g>
