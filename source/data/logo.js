@@ -1,7 +1,17 @@
+// @flow
+
 export const width = 27;
 export const height = 36;
 
-export const vertices = [
+export type Command = {
+  p: string,
+  x: number | null,
+  y: number | null,
+  h?: boolean,
+  v?: boolean
+}
+
+export const commands: Array<Command> = [
   // Outer logo shape
   { p: 'M', x: 12.6731383, y: 27.4000435, v: true },
   { p: 'C', x: 11.5872979, y: 32.0698934, v: true },

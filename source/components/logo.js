@@ -1,7 +1,5 @@
 // @flow
 
-/* eslint-disable no-param-reassign */
-
 import * as React from 'react';
 import { defer, reduce } from 'lodash';
 import { interpolateHclLong } from 'd3';
@@ -9,7 +7,9 @@ import { Motion, spring } from 'react-motion';
 
 import { LogoVector, InformationAnchor } from '../styles';
 
-import { width as logoWidth, height as logoHeight, vertices as logoVertices } from '../data/logo';
+import { width, height, commands } from '../data/logo';
+
+import type { Command } from '../data/logo';
 
 type Props = {};
 
@@ -24,65 +24,23 @@ const springSettings = { stiffness: 100, damping: 35 };
 const interpolateFromBlack = interpolateHclLong('#000000', '#361F27');
 const interpolateFromPurple = interpolateHclLong('#361F27', '#73D2DE');
 
-const reduceVertices = reduce.bind(
-  this,
-  logoVertices,
-  (memo, value, index) => {
-    let x;
-    let y;
+const commandsToMap = (interpolateX, interpolateY) => {
+  const reducer = (memo, value: Command, index: number) => {
+    const x = (value.x || 0: number);
+    const y = (value.y || 0: number);
 
-    if (value.h) {
-      x = spring(value.x, springSettings);
-    } else {
-      x = value.x || 0;
-    }
+    return {
+      ...memo,
+      [`x${index}`]: value.h ? interpolateX(x) : x,
+      [`y${index}`]: value.v ? interpolateY(y) : y
+    };
+  };
 
-    if (value.v) {
-      y = spring(value.y, springSettings);
-    } else {
-      y = value.y || 0;
-    }
-
-    memo[`x${index}`] = x;
-    memo[`y${index}`] = y;
-
-    return memo;
-  },
-  {}
-);
-
-const reduceDefaultVertices = reduce.bind(
-  this,
-  logoVertices,
-  (memo, value, index) => {
-    let x;
-    let y;
-
-    if (value.h) {
-      x = value.x + distanceX;
-    } else {
-      x = value.x || 0;
-    }
-
-    if (value.v) {
-      y = value.y + distanceY;
-    } else {
-      y = value.y || 0;
-    }
-
-    memo[`x${index}`] = x;
-    memo[`y${index}`] = y;
-
-    return memo;
-  },
-  {}
-);
+  return reduce(commands, reducer, {});
+};
 
 class Logo extends React.Component<Props, State> {
   svg: HTMLElement;
-
-  width: number;
-  height: number;
 
   state = {
     isOverDot: false
@@ -108,20 +66,20 @@ class Logo extends React.Component<Props, State> {
       <Motion
         defaultStyle={{
           color: 0,
-          width: logoWidth + distanceX,
-          height: logoHeight + distanceY,
-          ...reduceDefaultVertices()
+          width: width + distanceX,
+          height: height + distanceY,
+          ...commandsToMap(x => x + distanceX, y => y + distanceY)
         }}
         style={{
           color: spring(this.state.isOverDot ? 2 : 0, { dampening: 10, stiffness: 30 }),
-          width: spring(logoWidth, springSettings),
-          height: spring(logoHeight, springSettings),
-          ...reduceVertices()
+          width: spring(width, springSettings),
+          height: spring(height, springSettings),
+          ...commandsToMap(x => spring(x, springSettings), y => spring(y, springSettings))
         }}
       >
         {(motion) => {
-          const vertices = logoVertices
-            .map((vertex, index) => {
+          const path: string = commands
+            .map((command: Command, index) => {
               const x = motion[`x${index}`];
               const y = motion[`y${index}`];
 
@@ -129,7 +87,7 @@ class Logo extends React.Component<Props, State> {
                 return motion.p;
               }
 
-              return `${vertex.p}${x},${y} `;
+              return `${command.p}${x},${y} `;
             })
             .join('');
 
@@ -165,7 +123,7 @@ class Logo extends React.Component<Props, State> {
                     <tspan x="9.9" y="3.71934651">@</tspan>
                   </text>
                 </InformationAnchor>
-                <path className="jr" d={vertices} fill="#000000" />
+                <path className="jr" d={path} fill="#000000" />
               </g>
             </LogoVector>
           );
