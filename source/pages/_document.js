@@ -8,6 +8,8 @@ import { injectGlobalStyles } from '../styles/';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
+    injectGlobalStyles();
+
     const sheet = new ServerStyleSheet();
     const page = renderPage(App => props => sheet.collectStyles(<App {...props} />));
     const styleTags = sheet.getStyleElement();
@@ -15,8 +17,6 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    injectGlobalStyles();
-
     return (
       <html lang="en">
         <Head>
