@@ -11,7 +11,8 @@ module.exports = {
     );
 
     if (!dev) {
-      config.plugins.map((plugin) => {
+      // eslint-disable-next-line no-param-reassign
+      config.plugins = config.plugins.map((plugin) => {
         if (plugin instanceof webpack.optimize.UglifyJsPlugin) {
           return new UglifyJSPlugin();
         }

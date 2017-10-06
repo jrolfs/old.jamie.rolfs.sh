@@ -1,26 +1,3 @@
 {
-  "plugins": [
-    "lodash",
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    "transform-runtime",
-    ["babel-plugin-styled-components", { "ssr": true }]
-  ],
-  "presets": [
-    "react",
-    "flow",
-    ["env", {
-      "modules": false,
-      "targets": {
-        "browsers": ["last 2 versions"]
-      }
-    }]
-  ],
-  "env": {
-    "production": {
-      "plugins": [
-        ["babel-plugin-styled-components", { "ssr": true, "displayName": false }]
-      ]
-    }
-  }
+  "presets": ["./.babelrc.js"]
 }
