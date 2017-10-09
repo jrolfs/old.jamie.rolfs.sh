@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { throb } from './animations';
+
+import { throb } from '../../../styles/animations';
 
 const InformationAnchor = styled.a`
   cursor: pointer;

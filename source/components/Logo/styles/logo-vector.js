@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import ScalingVector from './scaling-vector';
+import ScalingVector from '../../../styles/scaling-vector';
 
 const LogoVector = styled(ScalingVector)`
   .jr {

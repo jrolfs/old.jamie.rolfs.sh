@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import CenteringLayout from './centering-layout';
 
-const LogoCenteringLayout = styled(CenteringLayout)`
+const OverflowCenteringLayout = styled(CenteringLayout)`
   width: calc(100% + 600px);
   height: calc(100% + 600px);
   margin-top: -300px;
@@ -11,4 +11,4 @@ const LogoCenteringLayout = styled(CenteringLayout)`
   margin-left: -300px;
 `;
 
-export default LogoCenteringLayout;
+export default OverflowCenteringLayout;

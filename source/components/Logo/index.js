@@ -5,11 +5,11 @@ import { defer, reduce } from 'lodash';
 import { interpolateHclLong } from 'd3';
 import { Motion, spring } from 'react-motion';
 
-import { LogoVector, InformationAnchor } from '../styles';
+import { width, height, commands } from '../../data/logo';
 
-import { width, height, commands } from '../data/logo';
+import type { Command } from '../../data/logo';
 
-import type { Command } from '../data/logo';
+import { LogoVector, InformationAnchor } from './styles';
 
 type Props = {};
 
@@ -102,7 +102,7 @@ class Logo extends React.Component<Props, State> {
           return (
             <LogoVector
               viewBox={`0 0 ${motion.width} ${motion.height}`}
-              innerRef={svg => this.svg = svg}
+              innerRef={svg => (this.svg = svg)}
               xmlns="http://www.w3.org/2000/svg"
             >
               <g className="logo">

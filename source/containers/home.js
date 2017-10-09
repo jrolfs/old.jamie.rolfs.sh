@@ -4,10 +4,10 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Logo from '../components/logo';
+import Logo from '../components/Logo';
 import { setSubtitle } from '../actions/copy';
 
-import { LogoCenteringLayout } from '../styles';
+import { OverflowCenteringLayout } from '../styles';
 
 import type { Store } from '../reducers';
 import type { SetSubtitleActionCreator } from '../actions/copy';
@@ -21,7 +21,6 @@ type State = {
   subtitle: string
 };
 
-
 class Home extends React.Component<Props, State> {
   handleSubmitleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ subtitle: event.currentTarget.value });
@@ -29,9 +28,9 @@ class Home extends React.Component<Props, State> {
 
   render() {
     return (
-      <LogoCenteringLayout>
+      <OverflowCenteringLayout>
         <Logo />
-      </LogoCenteringLayout>
+      </OverflowCenteringLayout>
     );
   }
 }
