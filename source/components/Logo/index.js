@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { defer, reduce } from 'lodash';
+import { reduce } from 'lodash';
 import { interpolateHclLong } from 'd3';
 import { Motion, spring } from 'react-motion';
 
@@ -47,10 +47,8 @@ class Logo extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    defer(() => {
-      this.svg.style.height = '400px';
-      this.svg.style.width = 'auto';
-    });
+    this.svg.style.height = '400px';
+    this.svg.style.width = 'auto';
   }
 
   handleAnchorMouseEnter = () => {
