@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import { reduce } from 'lodash';
 import { interpolateHclLong } from 'd3';
 import { Motion, spring } from 'react-motion';
