@@ -24,7 +24,7 @@ export function getAsyncRepositories(): Function {
 
       // FIXME: use configuration
       if (get(process, 'env.NODE_ENV') !== 'production') {
-        url = `http://localhost:3000${url}`;
+        url = `http://localhost:3333${url}`;
       }
 
       const response = await request.get(url);
