@@ -16,7 +16,6 @@ module.exports = {
   "plugins": [
     "lodash",
     "transform-flow-strip-types",
-    "transform-object-rest-spread",
     "transform-class-properties",
     ["styled-components", { "ssr": true }]
   ],
