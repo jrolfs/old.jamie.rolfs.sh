@@ -15,7 +15,7 @@
     "now:list": "yarn env ./node_modules/now-pipeline/bin/list.js"
   },
   "dependencies": {
-    "config": "^1.26.1",
+    "config": "^1.0.0",
     "d3": "^4.10.2",
     "gradient-string": "^0.1.2",
     "koa": "^2.2.0",
