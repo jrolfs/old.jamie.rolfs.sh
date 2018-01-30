@@ -6670,9 +6670,9 @@ styled-jsx@2.2.1:
     stylis "3.4.5"
     stylis-rule-sheet "0.0.7"
 
-styled-normalize@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/styled-normalize/-/styled-normalize-2.2.1.tgz#c93a007c0339a69e3254eeef8cb6a5a96e5ca4eb"
+styled-normalize@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/styled-normalize/-/styled-normalize-3.0.1.tgz#217efb96598690addd04699ca71af0db3473fea2"
 
 stylis-rule-sheet@0.0.7:
   version "0.0.7"
