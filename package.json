@@ -43,7 +43,7 @@
     "babel-plugin-lodash": "3.3.2",
     "babel-plugin-styled-components": "1.4.0",
     "babel-plugin-transform-flow-strip-types": "6.22.0",
-    "css-loader": "0.28.9",
+    "css-loader": "0.28.11",
     "cssnano": "3.10.0",
     "dotenv": "4.0.0",
     "eslint": "4.15.0",
