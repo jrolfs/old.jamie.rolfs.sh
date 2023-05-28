@@ -6691,8 +6691,7 @@ stylis@^3.2.1:
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.2.17.tgz#54950f8726b0237283e453c031c92f9adb53610b"
 
 superagent@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/superagent/-/superagent-3.6.0.tgz#eb679651057c3462199c7b902b696c25350e1b87"
+  version "3.7.0"
   dependencies:
     component-emitter "^1.2.0"
     cookiejar "^2.1.0"
