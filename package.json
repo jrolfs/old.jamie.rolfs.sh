@@ -51,7 +51,7 @@
     "eslint-plugin-flowtype": "2.41.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
-    "eslint-plugin-react": "7.3.0",
+    "eslint-plugin-react": "7.37.2",
     "flow-bin": "0.54.1",
     "flow-typed": "2.2.3",
     "now-pipeline": "1.10.0",
