@@ -2920,9 +2920,10 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flow-bin@0.54.1:
-  version "0.54.1"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.54.1.tgz#7101bcccf006dc0652714a8aef0c72078a760510"
+flow-bin@0.333.0:
+  version "0.333.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.333.0.tgz#6f44cb45b7772ab1a8a0ad9bb658de9ea0953c18"
+  integrity sha512-cDI5lcb0mbWUmkKs09hTaPEprQzrV+XKp1YzBLgNG13uzr1kM3qhYxZFx766f3an7LmD2lD9BzNbNu+hw4YHew==
 
 flow-typed@2.2.3:
   version "2.2.3"
